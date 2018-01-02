@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bunifu.Framework.UI;
 
 namespace TranfBCPopularCouder
 {
@@ -20,6 +21,8 @@ namespace TranfBCPopularCouder
         public home()
         {
             InitializeComponent();
+            btnMenu1.selected = true;
+            btnMenu1.Enabled = false;
         }
 
         private void panelHeader_MouseDown(object sender, MouseEventArgs e)
@@ -90,6 +93,29 @@ namespace TranfBCPopularCouder
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+       
+
+        void toggle(object sender)
+        {
+            btnMenu1.selected = false;
+            btnMenu2.selected = false;
+            btnMenu1.Enabled = true;
+            btnMenu2.Enabled = true;
+
+            ((BunifuFlatButton)sender).selected = true;
+            ((BunifuFlatButton)sender).Enabled = false;
+        }
+
+        private void btnMenu1_Click(object sender, EventArgs e)
+        {
+            toggle(sender);
+        }
+
+        private void btnMenu2_Click(object sender, EventArgs e)
+        {
+            toggle(sender);
         }
     }
 }
